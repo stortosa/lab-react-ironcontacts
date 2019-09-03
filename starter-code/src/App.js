@@ -13,10 +13,9 @@ class App extends Component {
   }
 
   addRandom() {
-    console.log("fuckmaer")
-    let Contactscopy = [...this.state.contacts]
+    let Contactscopy = [...contacts]
     let Listadocopy = [...this.state.Listado]
-
+// cambiar por un filter
     Contactscopy.forEach(contactShowed => {
       Listadocopy.splice(Listadocopy.indexOf(contactShowed), 1)
     });
@@ -27,9 +26,9 @@ class App extends Component {
     Contactscopy.push(Listadocopy[random])
 
     this.setState({
-      ...this.state.Listadocopy
+      ...this.state.Listado,
 
-      // Listado: Listadocopy
+      Listado: Listadocopy
       // contacts: Contactscopy
     })
   }
@@ -67,6 +66,7 @@ class App extends Component {
     })
 
     this.setState({
+      ...this.state,
       Listado: orderedList
     })
   }
@@ -87,7 +87,7 @@ class App extends Component {
             <button onClick={() => this.sortByName()}>Sort by Name</button>
             <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
 
-            <Contacts Listado={this.state.Listado} />
+            <Contacts Listado={this.state.Listado} delete={this.delete}/>
       </div>
     );
   }

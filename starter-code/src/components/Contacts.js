@@ -21,7 +21,7 @@ export default class Contacts extends Component {
                 <td><h3>{list.popularity}</h3></td>
               </tr>
             ))}
-
+            {/* boton de borrar */}
           </tbody>
         </table>
       </div>
